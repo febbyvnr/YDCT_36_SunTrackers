@@ -1,0 +1,53 @@
+/* Material Symbols Icon settings */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Custom overrides for the login page */
+body {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* Utility overrides (jika diperlukan tambahan style di luar Tailwind) */
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.dark .input-icon {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Button Hover */
+.button-primary:hover {
+  opacity: 0.9;
+}
+
+.login-page {
+  display: flex;
+  height: 100vh;
+}
+
+.login-left {
+  width: 50%;
+}
+
+.login-right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
