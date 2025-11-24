@@ -17,27 +17,25 @@ export default function SideBar() {
             }}
           ></div>
 
-          <div className="flex flex-col">
-            <h1 className="user-profile">
-                <img src={profile} className="profile-img"/>
-                Alex Green
-                <p className="user-rank">Project Manager</p>
-            </h1>
+          <div className="user-profile flex items-center gap-3">
+            <img src={profile} className="profile-img"/>
+            Alex Green
+              <h5 className="user-rank">Project Manager</h5>
           </div>
         </div>
 
         <nav className="logo-side-bar flex flex-col gap-2 mt-4">
-          <span className="material-icons">dashboard</span><p>Dashboard</p>
-          <span className="material-icons">folder</span><p>Projects</p>
-          <span className="material-icons">analytics</span><p>Analytics</p>
-          <span className="material-icons">solar_power</span><p>Add Panel</p>
-          <span className="material-icons">settings</span><p>Settings</p>
+          <p><span className="material-icons">dashboard</span>Dashboard</p>
+          <p><span className="material-icons">folder</span>Projects</p>
+          <p><span className="material-icons">analytics</span>Analytics</p>
+          <p><span className="material-icons">solar_power</span>Add Panel</p>
+          <p><span className="material-icons">settings</span>Settings</p>
         </nav>
       </div>
 
       <div className="logo-side-bar flex flex-col gap-1">
-        <span className="material-icons">help</span><p>Help</p>
-        <span className="material-icons">logout</span><p>Logout</p>
+        <p><span className="material-icons">help</span>Help</p>
+        <p><span className="material-icons">logout</span>Logout</p>
       </div>
     </aside>
   );
