@@ -3,7 +3,7 @@ import { Toaster } from "sonner";
 import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
-import DashboardPage from "../pages/DashboardPage";
+import AddPanelPage from "../pages/AddPanelPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -24,10 +24,10 @@ const router = createBrowserRouter([
             path: "/login",
             element: <LoginPage />,
         },
-        // {
-        //     path: "/dashboard",
-        //     element: <DashboardPage />,
-        // },
+        {
+            path: "/addPanel",
+            element: <AddPanelPage />,
+        },
         ],
     },
 ]);
