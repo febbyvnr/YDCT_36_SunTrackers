@@ -2,20 +2,22 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Toaster } from "sonner";
 import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
+import MapView from "../pages/MapView.jsx";
 import LoginPage from "../pages/LoginPage";
 import AddPanelPage from "../pages/AddPanelPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
+import DashboardPage from "../pages/DashboardPage";
 
 
 const router = createBrowserRouter([
     {
         element: <MainLayout />,
         children: [
-        // {
-        //     path: "/",
-        //     element: <HomePage />,
-        // },
+        {
+            path: "/",
+            element: <DashboardPage />,
+        },
         {
             path: "/login",
             element: <LoginPage />,
@@ -23,6 +25,10 @@ const router = createBrowserRouter([
         {
             path: "/addPanel",
             element: <AddPanelPage />,
+        },
+        {
+            path: "/mapView",
+            element: <MapView />,
         },
         ],
     },

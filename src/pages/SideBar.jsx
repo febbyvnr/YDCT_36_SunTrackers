@@ -25,7 +25,7 @@ export default function SideBar() {
 
         <nav className="logo-side-bar flex flex-col gap-2 mt-4">
           <p><span className="material-icons">dashboard</span>Dashboard</p>
-          <p><span className="material-icons">folder</span>Projects</p>
+          <p><span className="material-icons">map</span>Map View</p>
           <p><span className="material-icons">analytics</span>Analytics</p>
           <p><span className="material-icons">solar_power</span>Add Panel</p>
           <p><span className="material-icons">settings</span>Settings</p>
