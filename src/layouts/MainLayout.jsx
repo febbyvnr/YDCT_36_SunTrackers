@@ -8,17 +8,17 @@ const MainLayout = () => {
 
     return (
         <div className="flex w-full h-screen">
-            
-            {/* Sidebar */}
-            {!isLoginPage && (
-                <div className="w-64 h-full fixed left-0 top-0">
-                    <SideBar />
-                </div>
-            )}
-
-            {/* CONTENT */}
-            <div className={isLoginPage ? "w-full" : "ml-64 flex-1 overflow-y-auto p-8"}>
+            <div className={isLoginPage ? "w-full" : "ml-64 flex-1 overflow-y-auto"}>
                 <DynamicPageTitle />
+                
+                {/* Sidebar */}
+                {!isLoginPage && (
+                    <div className="w-64 h-screen fixed left-0 top-0 z-50">
+                        <SideBar />
+                    </div>
+                )}
+
+                {/* CURRENT PAGE */}
                 <Outlet />
 
                 {!isLoginPage && (

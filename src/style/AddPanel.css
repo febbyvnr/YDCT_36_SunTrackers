@@ -1,4 +1,139 @@
 .addPanel-container {
-    display: flex;
-    
+    background-color: #0f2418;
+    color: white;
+    padding: 3rem 4rem;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    position: relative;
 }
+
+.title-heading {
+    font-size: 2.25rem;
+    font-weight: 600;
+}
+
+.subtitle-text {
+    color: #6dbb7c;
+    margin-top: 0.5rem;
+}
+
+.section-spacing {
+    margin-top: 2.5rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.section-divider {
+    height: 1px;
+    background-color: #1e3d2d;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.label-normal {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 1px solid #2d5a43;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.input-clear {
+    background: transparent;
+    outline: none;
+    width: 100%;
+    border: none;
+}
+
+.icon-green {
+    color: #6dbb7c;
+}
+
+.input-full {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #2d5a43;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    outline: none;
+}
+
+.mt-6-block {
+  margin-top: 1.5rem;
+}
+
+.label-flex {
+  display: flex;
+  align-items: center; 
+  gap: 0.5rem;
+  margin-bottom: 0.5rem; 
+  display: block; 
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;      /* gap-6 */
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.radio-input {
+  accent-color: #6dbb7c;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem; 
+  margin-top: 4rem; 
+}
+
+.btn-skip {
+  color: #d1d5db; 
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-skip:hover {
+  text-decoration: underline;
+}
+
+.btn-save {
+  background-color: #34c759;
+  color: black;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-save:hover {
+  background-color: #2eaf4e;
+}
+
