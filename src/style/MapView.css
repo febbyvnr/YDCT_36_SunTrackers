@@ -2,9 +2,10 @@
 .mapview-wrapper {
   display: flex;
   background-color: #112217; /* DARK GREEN */
-  padding: 20px;
+  padding: 1rem 4rem;
   min-height: 100vh;
   gap: 20px;
+  padding-left: 17rem;
 }
 
 /* LEFT FORM SIDEBAR */

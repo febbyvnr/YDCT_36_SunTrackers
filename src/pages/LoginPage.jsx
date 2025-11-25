@@ -2,6 +2,7 @@ import React from "react";
 import "../style/Login.css";
 import logo from "../assets/images/logo.png";
 import pic from "../assets/images/picLogin.png";
+import FormLogin from "../components/FormLogin";
 
 export default function LoginPage() {
   return (

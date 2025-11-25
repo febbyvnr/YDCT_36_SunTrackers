@@ -1,12 +1,13 @@
 .addPanel-container {
     background-color: #0f2418;
     color: white;
-    padding: 3rem 4rem;
+    padding: 2rem 4rem;
     z-index: 1;
     width: 100%;
     height: auto;
     min-height: 100vh;
     position: relative;
+    padding-left: 17rem;
 }
 
 .title-heading {

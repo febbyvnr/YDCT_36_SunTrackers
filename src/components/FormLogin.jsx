@@ -1,84 +1,89 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Form, FloatingLabel, Button, Alert } from "react-bootstrap";
 import { toast } from "sonner";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Untuk ikon mata
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const FormLogin = () => {
-    const navigate = useNavigate();
-    const [user, setUser] = useState({ username: "", password: "" });
-    const [showPassword, setShowPassword] = useState(false); // State untuk toggle password visibility
+export default function FormLogin() {
+  const navigate = useNavigate();
+  const [user, setUser] = useState({ email: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setUser({ ...user, [name]: value });
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (user.email === "" || user.password === "") {
+      toast.error("Email and Password cannot be empty!");
+      return;
+    }
+
+    // contoh validasi
+    if (user.email !== "admin@gmail.com" || user.password !== "admin123") {
+      toast.error("Invalid email or password!");
+      return;
+    }
+
+    // simpan user
+    const newUser = {
+      ...user,
+      loginAt: new Date(),
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    localStorage.setItem("user", JSON.stringify(newUser));
+    toast.success("Login success!");
 
-        if (user.username === "" || user.password === "") {
-            toast.error("Username and Password Cannot Empty!");
-            return;
-        } else if (user.password.length !== 5 || user.username !== "username" || user.password !== "password") {
-            toast.error("Username and Password Invalid !");
-            return;
-        } else {
-            const newUser = {
-                ...user,
-                loginAt: new Date(),
-            };
-            localStorage.setItem("user", JSON.stringify(newUser));
-            toast.success("Login Success!");
-            setTimeout(() => {
-                navigate("/dashboard");
-            }, 1000);
-        }
-    };
+    setTimeout(() => navigate("/"), 1200);
+  };
 
-    const togglePasswordVisibility = () => {
-        setShowPassword((prev) => !prev); 
-    };
+  return (
+    <form onSubmit={handleSubmit} className="w-full flex flex-col mt-4">
 
-    return (
-        <form onSubmit={handleSubmit} style={{ maxWidth: "700px", margin: "auto" }}>
-            <Alert variant="info">
-                <strong>Info!</strong> 
-            </Alert>
-            <FloatingLabel controlId="floatingInput" label="Username" className="mb-3">
-                <Form.Control
-                    type="text"
-                    placeholder="name@example.com"
-                    name="username"
-                    onChange={handleChange}
-                />
-            </FloatingLabel>
-            <FloatingLabel controlId="floatingPassword" label="Password" className="mb-3" style={{ position: "relative" }}>
-                <Form.Control
-                    type={showPassword ? "text" : "password"} 
-                    name="password"
-                    onChange={handleChange}
-                    autoComplete="off"
-                />
-                <span
-                    onClick={togglePasswordVisibility}
-                    style={{
-                        position: "absolute",
-                        right: "10px",
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        cursor: "pointer",
-                        color: "#6c757d",
-                    }}
-                >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </span>
-            </FloatingLabel>
-            <Button variant="primary" type="submit" className="mt-3 w-100">
-                Login
-            </Button>
-        </form>
-    );
-};
+      {/* Email */}
+      <label className="form-label">Email Address</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="you@example.com"
+        className="form-input"
+        onChange={handleChange}
+      />
 
-export default FormLogin;
+      {/* Password */}
+      <label className="form-label mt-3">Password</label>
+      <div className="password-wrapper">
+        <input
+          type={showPassword ? "text" : "password"}
+          name="password"
+          placeholder="Enter your password"
+          className="form-input"
+          onChange={handleChange}
+        />
+        <span
+          className="password-toggle"
+          onClick={() => setShowPassword((prev) => !prev)}
+        >
+          {showPassword ? <FaEyeSlash /> : <FaEye />}
+        </span>
+      </div>
+
+      {/* extras */}
+      <div className="extras">
+        <label className="remember">
+          <input type="checkbox" /> Remember me
+        </label>
+
+        <button className="forgot" type="button">Forgot Password?</button>
+      </div>
+
+      {/* Button */}
+      <button type="submit" className="btn-login mt-4">
+        Sign In
+      </button>
+
+      <p className="form-note">Access is based on your assigned role.</p>
+    </form>
+  );
+}

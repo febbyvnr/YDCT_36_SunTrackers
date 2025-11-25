@@ -3,7 +3,8 @@
   flex-direction: column;
   gap: 2rem;
   background-color: #112217;
-  padding: 3rem 4rem;
+  padding: 2rem 4rem;
+padding-left: 17rem;
 }
 
 .stat-grid {

@@ -1,13 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Toaster } from "sonner";
 import MainLayout from "../layouts/MainLayout";
-import HomePage from "../pages/HomePage";
-import MapView from "../pages/MapView.jsx";
 import LoginPage from "../pages/LoginPage";
+import DashboardPage from "../pages/DashboardPage";
+import MapView from "../pages/MapView.jsx";
+// import Analytics from "../pages/AnalyticsPage.jsx";
 import AddPanelPage from "../pages/AddPanelPage";
+// import SettingsPage from "../pages/SettingsPage.jsx";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
-import DashboardPage from "../pages/DashboardPage";
 
 
 const router = createBrowserRouter([
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
             path: "/mapView",
             element: <MapView />,
         },
+        // {
+        //     path: "/analytics",
+        //     element: <AnalyticsPage />,
+        // },
+        // {
+        //     path: "/settings",
+        //     element: <SettingsPage />,
+        // },
         ],
     },
     {
