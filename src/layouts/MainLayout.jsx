@@ -7,18 +7,23 @@ const MainLayout = () => {
     const isLoginPage = location.pathname === "/login";
 
     return (
-        <div className="flex">
-            {!isLoginPage && <SideBar />}
+        <div className="flex w-full h-screen">
+            
+            {/* Sidebar */}
+            {!isLoginPage && (
+                <div className="w-64 h-full fixed left-0 top-0">
+                    <SideBar />
+                </div>
+            )}
 
-            <div className={isLoginPage ? "w-full" : "flex-1 mt-4 pt-5"}>
+            {/* CONTENT */}
+            <div className={isLoginPage ? "w-full" : "ml-64 flex-1 overflow-y-auto p-8"}>
                 <DynamicPageTitle />
                 <Outlet />
 
                 {!isLoginPage && (
-                    <footer className="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                        <div className="col-md-4 d-flex align-items-center">
-                            <span className="mb-3 mb-md-0 text-body-secondary">© 2025 by Team 36</span>
-                        </div>
+                    <footer className="mt-20 border-t pt-6 text-center text-gray-500">
+                        © 2025 by Team 36
                     </footer>
                 )}
             </div>

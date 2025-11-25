@@ -10,10 +10,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
     {
-        path: "*",
-        element: <div>Routes Not Found!</div>,
-    },
-    {
         element: <MainLayout />,
         children: [
         // {
@@ -29,6 +25,10 @@ const router = createBrowserRouter([
             element: <AddPanelPage />,
         },
         ],
+    },
+    {
+        path: "*",
+        element: <div>Routes Not Found!</div>,
     },
 ]);
 
