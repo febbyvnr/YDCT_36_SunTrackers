@@ -11,7 +11,6 @@ const AddPanelPage = () => {
     totalInstallationCostRp: "",
     totalAreaCoveredM2: "",
     avgMonthlyElectricityConsumedKwh: "",
-    avgMonthlyElectricityCostRp: "",
   });
 
   const [status, setStatus] = useState({ type: "", message: "" });
@@ -34,7 +33,6 @@ const AddPanelPage = () => {
     if (isEmpty(form.totalInstallationCostRp)) missing.push("Total Installation Cost");
     if (isEmpty(form.totalAreaCoveredM2)) missing.push("Total Area Covered");
     if (isEmpty(form.avgMonthlyElectricityConsumedKwh)) missing.push("Average Monthly Electricity Consumed");
-    if (isEmpty(form.avgMonthlyElectricityCostRp)) missing.push("Average Monthly Electricity Cost");
     return missing;
   }, [form]);
 
@@ -69,7 +67,6 @@ const AddPanelPage = () => {
       totalInstallationCostRp: toNumberStrict(form.totalInstallationCostRp),
       totalAreaCoveredM2: toNumberStrict(form.totalAreaCoveredM2),
       avgMonthlyElectricityConsumedKwh: toNumberStrict(form.avgMonthlyElectricityConsumedKwh),
-      avgMonthlyElectricityCostRp: toNumberStrict(form.avgMonthlyElectricityCostRp),
     };
 
     try {
@@ -85,7 +82,7 @@ const AddPanelPage = () => {
         throw new Error(data?.error || data?.message || "Unknown error");
       }
 
-      setStatus({ type: "success", message: "Saved ✅ Data berhasil disimpan ke database." });
+      setStatus({ type: "success", message: "Data Saved!" });
 
       setForm({
         location: "",
@@ -96,7 +93,6 @@ const AddPanelPage = () => {
         totalInstallationCostRp: "",
         totalAreaCoveredM2: "",
         avgMonthlyElectricityConsumedKwh: "",
-        avgMonthlyElectricityCostRp: "",
       });
     } catch (err) {
       setStatus({ type: "error", message: `Gagal menyimpan ❌ ${err.message}` });
@@ -219,7 +215,7 @@ const AddPanelPage = () => {
               required
               min={0}
               className="input-full"
-              placeholder="e.g., 150000"
+              placeholder="e.g., 6500000"
             />
           </div>
 
@@ -258,20 +254,6 @@ const AddPanelPage = () => {
               placeholder="e.g., 600"
             />
           </div>
-
-          <div>
-            <label className="label-normal">Average Monthly Electricity Cost (Rp)</label>
-            <input
-              type="number"
-              name="avgMonthlyElectricityCostRp"
-              value={form.avgMonthlyElectricityCostRp}
-              onChange={onChange}
-              required
-              min={0}
-              className="input-full"
-              placeholder="e.g., 350000"
-            />
-          </div>
         </div>
       </div>
 
@@ -287,7 +269,7 @@ const AddPanelPage = () => {
           className="btn-save"
           onClick={onSubmit}
           disabled={!canSubmit}
-          title={!canSubmit ? `Masih ada yang kosong: ${missingFields.join(", ")}` : "Save"}
+          title={!canSubmit ? `Some Field is empty: ${missingFields.join(", ")}` : "Save"}
         >
           {isSubmitting ? "Saving..." : "Save Details"}
         </button>
