@@ -1,0 +1,239 @@
+.mypanel-container {
+  background-color: #0f2418;
+  color: #ffffff;
+  padding: 2rem 4rem;
+  width: 100%;
+  min-height: 100vh;
+  padding-left: 17rem; /* sesuaikan dengan sidebar kamu */
+}
+
+.mypanel-title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.mypanel-subtitle {
+  color: #6dbb7c;
+  margin-top: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Toolbar */
+.mypanel-toolbar {
+  display: grid;
+  grid-template-columns: 1fr 280px auto;
+  gap: 16px;
+  align-items: end;
+  margin-top: 1rem;
+}
+
+.mypanel-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mypanel-label {
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+.mypanel-input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #2d5a43;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  outline: none;
+  color: #ffffff;
+}
+
+.mypanel-input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.mypanel-input:focus {
+  border-color: #6dbb7c;
+}
+
+.mypanel-select {
+  appearance: none;
+}
+
+/* select dropdown */
+.mypanel-select option {
+  color: #000; /* biar kebaca saat dropdown kebuka */
+}
+
+.mypanel-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mypanel-btn {
+  background-color: #34c759;
+  color: #000;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.mypanel-btn:hover {
+  background-color: #2eaf4e;
+}
+
+.mypanel-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Section */
+.mypanel-section {
+  margin-top: 2.5rem;
+}
+
+.mypanel-sectionHead {
+  margin-bottom: 1rem;
+}
+
+.mypanel-sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.mypanel-divider {
+  height: 1px;
+  background-color: #1e3d2d;
+  margin-top: 0.75rem;
+}
+
+/* List + Card */
+.mypanel-list {
+  display: grid;
+  gap: 16px;
+}
+
+.mypanel-card {
+  border: 1px solid #2d5a43;
+  border-radius: 14px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.mypanel-cardTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.mypanel-cardTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.mypanel-cardMeta {
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+.mypanel-cardRight {
+  text-align: right;
+  opacity: 0.85;
+}
+
+.mypanel-cardSmall {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+/* KPI Grid */
+.mypanel-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mypanel-kpi {
+  border: 1px solid rgba(45, 90, 67, 0.7);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.mypanel-kpiLabel {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+.mypanel-kpiValue {
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+.mypanel-kpiWide {
+  grid-column: span 2;
+}
+
+.mypanel-id {
+  margin-top: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  word-break: break-all;
+  opacity: 0.95;
+}
+
+/* Alerts / muted */
+.mypanel-muted {
+  opacity: 0.85;
+}
+
+.mypanel-alert {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid;
+}
+
+.mypanel-alertError {
+  border-color: rgba(255, 120, 120, 0.7);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .mypanel-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .mypanel-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .mypanel-actions {
+    justify-content: flex-start;
+  }
+
+  .mypanel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mypanel-kpiWide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .mypanel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mypanel-kpiWide {
+    grid-column: span 1;
+  }
+}

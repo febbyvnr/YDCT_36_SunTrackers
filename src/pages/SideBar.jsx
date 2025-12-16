@@ -23,6 +23,7 @@ export default function SideBar() {
           <p onClick={() => navigate("/mapView")} style={{ cursor: "pointer", background: "transparent" }}><span className="material-icons">map</span>Map View</p>
           <p onClick={() => navigate("/analytics")} style={{ cursor: "pointer", background: "transparent" }}><span className="material-icons">analytics</span>Analytics</p>
           <p onClick={() => navigate("/addPanel")} style={{ cursor: "pointer", background: "transparent" }}><span className="material-icons">solar_power</span>Add Panel</p>
+          <p onClick={() => navigate("/myPanels")} style={{ cursor: "pointer", background: "transparent" }}><span className="material-icons">solar_power</span>My Panels</p>
           <p onClick={() => navigate("/settings")} style={{ cursor: "pointer", background: "transparent" }}><span className="material-icons">settings</span>Settings</p>
         </nav>
       </div>

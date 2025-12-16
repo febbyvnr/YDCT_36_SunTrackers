@@ -7,6 +7,7 @@ import MapView from "../pages/MapView.jsx";
 // import Analytics from "../pages/AnalyticsPage.jsx";
 import AddPanelPage from "../pages/AddPanelPage";
 // import SettingsPage from "../pages/SettingsPage.jsx";
+import MyPanelPage from "../pages/MyPanelPage.jsx";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
         //     path: "/settings",
         //     element: <SettingsPage />,
         // },
+        
+        {
+            path: "/myPanels",
+            element: <MyPanelPage />,
+        },
         ],
     },
     {
