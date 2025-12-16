@@ -42,6 +42,13 @@
     gap: 2rem;
 }
 
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
 .label-normal {
     display: block;
     margin-bottom: 0.5rem;
@@ -61,6 +68,7 @@
     outline: none;
     width: 100%;
     border: none;
+    color: grey;
 }
 
 .icon-green {
@@ -91,8 +99,8 @@
 .radio-group {
   display: flex;
   align-items: center;
-  gap: 1.5rem;      /* gap-6 */
-  margin-bottom: 0.75rem; /* mb-3 */
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .radio-label {
@@ -138,3 +146,9 @@
   background-color: #2eaf4e;
 }
 
+@media (max-width: 1024px) {
+  .grid-3col { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .grid-3col { grid-template-columns: 1fr; }
+}
