@@ -22,12 +22,12 @@ const PORT = process.env.PORT || 5001;
 // =====================
 // CORS CONFIGURATION
 // =====================
-// Allows your Firebase frontend to talk to this Render backend
+// Explicitly allowing your Firebase domains and Localhost
 app.use(cors({
     origin: [
-        /\.web\.app$/,           // Matches your-project.web.app
-        /\.firebaseapp\.com$/,   // Matches your-project.firebaseapp.com
-        "http://localhost:5173"  // For local testing
+        "https://suntrackers-9171b.web.app",
+        "https://suntrackers-9171b.firebaseapp.com",
+        "http://localhost:5173"
     ],
     methods: ["GET", "POST"],
     credentials: true
@@ -77,7 +77,7 @@ app.post("/api/chat", async (req, res) => {
         const { messages } = req.body;
 
         if (!groq) {
-            return res.status(500).json({ error: "AI service not configured on server." });
+            return res.status(500).json({ error: "AI service not configured on server. Please check GROQ_API_KEY on Render." });
         }
 
         if (!Array.isArray(messages) || messages.length === 0) {
