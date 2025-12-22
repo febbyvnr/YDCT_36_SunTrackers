@@ -16,17 +16,18 @@ const Groq = require("groq-sdk");
 // =====================
 const app = express();
 
-// Render uses an environment variable for PORT, usually 10000
+// Render uses an environment variable for PORT (usually 10000)
 const PORT = process.env.PORT || 5001;
 
 // =====================
 // CORS CONFIGURATION
 // =====================
-// This allows your specific Netlify site to access this backend
+// Allows your Firebase frontend to talk to this Render backend
 app.use(cors({
     origin: [
-        "https://guileless-gelato-ca1d85.netlify.app", 
-        "http://localhost:5173" // For local testing
+        /\.web\.app$/,           // Matches your-project.web.app
+        /\.firebaseapp\.com$/,   // Matches your-project.firebaseapp.com
+        "http://localhost:5173"  // For local testing
     ],
     methods: ["GET", "POST"],
     credentials: true
@@ -37,8 +38,6 @@ app.use(bodyParser.json());
 // =====================
 // GROQ CLIENT
 // =====================
-// We check for the key but don't kill the process immediately 
-// to allow Render to start even if you haven't set the variable yet.
 const groqApiKey = process.env.GROQ_API_KEY;
 
 let groq;
@@ -46,7 +45,7 @@ if (groqApiKey) {
     groq = new Groq({ apiKey: groqApiKey });
     console.log("✅ Groq Client Initialized");
 } else {
-    console.warn("⚠️ Warning: GROQ_API_KEY is missing from environment variables.");
+    console.warn("⚠️ Warning: GROQ_API_KEY is missing from Render environment variables.");
 }
 
 // =====================
@@ -62,9 +61,9 @@ let schools = [
 // ROUTES
 // =====================
 
-// 1. Health check (Verify Render is live)
+// 1. Health Check (Check this URL in your browser to see if server is awake)
 app.get("/", (req, res) => {
-    res.send("✅ West Java Solar Backend is LIVE and Running!");
+    res.send("✅ West Java Solar Backend is LIVE and Running on Render!");
 });
 
 // 2. Get school projects
@@ -72,7 +71,7 @@ app.get("/api/projects", (req, res) => {
     res.json(schools);
 });
 
-// 3. Chat endpoint (AI Integration)
+// 3. Chat endpoint (Groq AI Integration)
 app.post("/api/chat", async (req, res) => {
     try {
         const { messages } = req.body;
@@ -82,11 +81,10 @@ app.post("/api/chat", async (req, res) => {
         }
 
         if (!Array.isArray(messages) || messages.length === 0) {
-            return res.status(400).json({ error: "Messages are required in the request body." });
+            return res.status(400).json({ error: "Messages are required." });
         }
 
         const completion = await groq.chat.completions.create({
-            // Using a reliable standard model for competition stability
             model: "llama3-8b-8192", 
             messages: messages,
             temperature: 0.7
@@ -110,5 +108,4 @@ app.post("/api/chat", async (req, res) => {
 // =====================
 app.listen(PORT, () => {
     console.log(`🚀 Server is listening on Port ${PORT}`);
-    console.log(`🔗 Local link: http://localhost:${PORT}`);
 });
