@@ -1,6 +1,10 @@
 // src/services/api.js
 
-const API_URL = "http://localhost:5000/api";
+// This will use the Render URL when live, and localhost when you are testing locally
+const API_URL = import.meta.env.VITE_API_URL 
+
+// If your routes need the "/api" suffix, do this:
+const FULL_API_URL = `${API_URL}/api`;
 
 export const calculateSolar = async (data) => {
   try {
