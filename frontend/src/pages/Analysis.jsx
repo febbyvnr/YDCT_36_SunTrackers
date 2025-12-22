@@ -4,9 +4,14 @@ import '../App.css';
 export default function Analysis() {
   const [view, setView] = useState('school');
 
- const handleShare = () => {
-    // This grabs the actual link of your web app automatically
-    const currentUrl = window.location.href; 
+  const handleShare = () => {
+    /**
+     * DYNAMIC URL LOGIC:
+     * When you are on your computer, this will be localhost.
+     * After you run 'firebase deploy', this will automatically become 
+     * https://suntrackers-9171b.web.app/analysis
+     */
+    const currentUrl = window.location.origin + window.location.pathname + `?v=${Date.now()}`; 
 
     const message = view === 'school' 
       ? `🌿 Check out how West Java schools are hitting 69.3% Solar Independence! View the impact here: ${currentUrl}`
