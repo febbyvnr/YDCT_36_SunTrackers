@@ -1,6 +1,36 @@
 <!doctype html>
 <html lang="en">
   <head>
+
+   <!-- REPLACE your existing translate script with this -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'id,en',
+      // In your googleTranslateElementInit function
+includedLanguages: 'id,su,en',  // su = Sundanese
+      defaultLanguage: 'id',
+      autoDisplay: true,        /* ← auto translates on load */
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+
+  /* Force Indonesian on every page load */
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var select = document.querySelector('.goog-te-combo');
+      if (select) {
+        select.value = 'id';
+        select.dispatchEvent(new Event('change'));
+      }
+    }, 800);
+  });
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"/>

@@ -84,23 +84,29 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar">
-        <div className="navbarInner">
-          <div className="logo" onClick={() => navigate('/home')} role="button" tabIndex={0}>
-            <span className="logoIcon">⚡ </span>
-            <span className="logoText">PowerWestJava</span>
-          </div>
+     <nav className="navbar">
+  <div className="navbarInner">
 
-          <button
-            type="button"
-            className="navToggle"
-            aria-label="Open menu"
-            aria-expanded={menuOpen}
-            aria-controls="mainNav"
-            onClick={() => setMenuOpen((v) => !v)}
-          >
-            <span className="navToggleIcon" aria-hidden="true">☰</span>
-          </button>
+    {/* LOGO */}
+    <div className="logo" onClick={() => navigate('/home')} role="button" tabIndex={0}>
+      <span className="logoIcon">⚡ </span>
+      <span className="logoText">PowerWestJava</span>
+    </div>
+
+    {/* TRANSLATE WIDGET */}
+    <div id="google_translate_element" className="translate-widget"></div>
+
+  
+    <button
+      type="button"
+      className="navToggle"
+      aria-label="Open menu"
+      aria-expanded={menuOpen}
+      aria-controls="mainNav"
+      onClick={() => setMenuOpen((v) => !v)}
+    >
+      <span className="navToggleIcon" aria-hidden="true">☰</span>
+    </button>
 
           <div
             className={`navOverlay ${menuOpen ? 'show' : ''}`}
@@ -216,6 +222,8 @@ export default function Navbar() {
             )}
           </div>
         </div>
+
+        
       </nav>
 
       {showAuthModal && (

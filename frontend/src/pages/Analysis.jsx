@@ -33,6 +33,7 @@ export default function Analysis() {
     <div className="analysisPage">
       <div className="analysisHeader">
         <div className="analysisTitleWrap">
+          <div id="google_translate_element"></div>
           <h1 style={{ margin: 0 }}><i className="bi bi-graph-up"></i> Impact Dashboard</h1>
           <p style={{ margin: 0 }}>
             Real-time monitoring of West Java's transition to sustainable energy. 
