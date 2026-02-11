@@ -25,7 +25,6 @@ export default function Articles() {
         <div className="articles-page">
 
 <div id="google_translate_element"></div>
-            {/* ── PINNED VENDOR BANNER ── */}
 <div className="vendor-pin-banner">
     <div className="vendor-pin-left">
         <div className="vendor-pin-icon">☀️</div>
@@ -87,7 +86,6 @@ export default function Articles() {
 
 <div className="vendor-section" id="vendor-section">
 
-  {/* new: label pill + refreshed heading block */}
   <div className="vendor-section-label">
     <i className="bi bi-geo-alt-fill"></i> West Java Directory
   </div>

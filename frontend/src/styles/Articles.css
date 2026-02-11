@@ -247,11 +247,6 @@
   line-height: 1.5;
 }
 
-/* ═══════════════════════════════════════════
-   REPLACE everything from .vendor-section
-   downward in your Articles.css with this
-═══════════════════════════════════════════ */
-/* ── PINNED VENDOR BANNER ── */
 .vendor-pin-banner {
   background: linear-gradient(135deg, #1b4332 0%, #27523a 50%, #1b4332 100%);
   padding: 14px 60px;
@@ -346,7 +341,6 @@
   box-shadow: 0 8px 40px rgba(46, 125, 50, 0.07);
 }
 
-/* decorative sun watermark */
 .vendor-section::before {
   content: '☀';
   position: absolute;
@@ -359,7 +353,6 @@
   user-select: none;
 }
 
-/* decorative bottom glow */
 .vendor-section::after {
   content: '';
   position: absolute;
@@ -372,7 +365,6 @@
   pointer-events: none;
 }
 
-/* ── section label pill ── */
 .vendor-section-label {
   display: inline-flex;
   align-items: center;
@@ -413,14 +405,12 @@
   font-style: italic;
 }
 
-/* ── vendor grid ── */
 .vendor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 22px;
 }
 
-/* ── vendor card ── */
 .vendor-card {
   background: #ffffff;
   border-radius: 18px;
@@ -434,7 +424,6 @@
   overflow: hidden;
 }
 
-/* green top accent bar — slides in on hover */
 .vendor-card::before {
   content: '';
   position: absolute;
@@ -458,7 +447,6 @@
   opacity: 1;
 }
 
-/* ── vendor header ── */
 .vendor-header {
   margin-bottom: 10px;
 }
@@ -470,7 +458,6 @@
   line-height: 1.3;
 }
 
-/* location pill */
 .vendor-location {
   display: inline-flex;
   align-items: center;
@@ -488,7 +475,6 @@
   font-size: 10px;
 }
 
-/* category & phone rows */
 .vendor-category {
   margin: 10px 0 0;
   font-size: 13px;
@@ -504,7 +490,6 @@
   font-size: 12.5px;
 }
 
-/* ── vendor actions ── */
 .vendor-actions {
   display: flex;
   gap: 10px;
